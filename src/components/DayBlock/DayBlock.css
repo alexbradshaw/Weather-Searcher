@@ -1,0 +1,16 @@
+.dayBlock{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: flex-start;
+    width: 100%;
+}
+
+.infoHeader{
+    height: 3%;
+}
+
+.informationBox{
+    width: 100%;
+    justify-content: flex-start;
+}

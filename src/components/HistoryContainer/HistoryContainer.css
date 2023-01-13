@@ -1,5 +1,5 @@
 .historyContainer{
-    border: solid 1px black;
+    border: solid 3px black;
     height: 89%;
     width: 17.5%;
     display: flex;
@@ -7,18 +7,26 @@
     justify-content: center;
 }
 
-.clearHistory{
-    width: 100%;
-    height: 5%;
-    align-self: flex-end;
-    margin: 1% 1% 2%;
-}
-
 .searchHistoryHeader{
     width: 100%;
-    height: 3%;
+    height: fit-content;
     justify-self: center;
     text-align: center;
     margin-top: 5%;
-    margin-bottom: 5%;
+}
+
+.buttonContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    width: 100%;
+    margin-top: 5%;
+    height: 85%;
+}
+
+.clearHistory{
+    width: 100%;
+    height: 5%;
+    margin: 1% 1% 3%;
+    align-self: flex-end;
 }

@@ -8,15 +8,14 @@ import './FiveDayBlock.css';
 
 
 const FiveDayBlock = () => {
+    return (
+        <div className='fiveDayBlock'> 
 
-return (
-<div className='fiveDayBlock'> 
-
-</div>
-)
+        </div>
+    )
 }
 
 
 
 
-export default FiveDayBlock
+export default FiveDayBlock;

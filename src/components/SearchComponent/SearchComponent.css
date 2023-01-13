@@ -1,0 +1,18 @@
+.searchBar{
+    display: flex;
+    justify-content: center;
+    width: 81%;
+    height: 10%;
+}
+
+.input{
+    width: 80%;
+    height: 25px;
+    margin: 5% 0%;
+}
+
+.searchButton{
+    width: auto;
+    height: 31.5px;
+    margin: 5% 0%;
+}
