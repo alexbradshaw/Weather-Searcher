@@ -7,12 +7,16 @@ const FiveDayBlock = (props) => {
 
     const temperature = props.temperature
     const humidity = props.humidity
+    const sourceString = "http://openweathermap.org/img/wn/" + icon
 
     return (
         <div className='fiveDayBlock'> 
-            <h4>{date}</h4>
-            <h5>Temperature: {temperature}</h5>
-            <h5>Humidity: {humidity}</h5>
+            <div>
+                <h4>{date}</h4>
+                <img src={sourceString} className="icon"></img>
+            </div>
+            <h5>Temperature: {temperature}℉</h5>
+            <h5>Humidity: {humidity}%</h5>
         </div>
     )
 }

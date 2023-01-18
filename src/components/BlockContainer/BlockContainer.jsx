@@ -2,7 +2,10 @@ import './BlockContainer.css';
 import DayBlock from '../DayBlock/DayBlock'
 import FiveDayContainer from '../FiveDayContainer/FiveDayContainer';
 
-const BlockContainer = () => {
+const BlockContainer = (props) => {
+
+    const weatherInfo = props.weatherInfo
+    const setWeatherInfo = props.setWeatherInfo
 
     return (
         <div className='blockContainer'> 
