@@ -2,4 +2,10 @@
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  background-color: #e0fbfc;
+  color: white;
+}
+
+.App button {
+  color: white;
 }

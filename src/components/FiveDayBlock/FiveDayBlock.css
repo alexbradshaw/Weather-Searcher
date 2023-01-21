@@ -1,6 +1,14 @@
 .fiveDayBlock{
     width: 15%;
     text-align: center;
-    border: black 1px solid;
+    border: black 2.5px solid;
     border-radius: 10px;
+    background-color: #98c1d9;
+    font-size: x-large;
+    -webkit-text-stroke: .5px black;
+}
+
+.icons{
+    width: 100px;
+    height: 100px;
 }

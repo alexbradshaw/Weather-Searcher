@@ -1,9 +1,8 @@
 .headerDiv{
     display: flex;
     width: 100%;
-    height: 9%;
+    height: 7%;
     align-content: center;
     justify-content: center;
-    background-color: #343a40;
-    color: white;
+    background-color: #3d5a80;
 }

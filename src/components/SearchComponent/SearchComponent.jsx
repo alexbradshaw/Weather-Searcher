@@ -14,7 +14,7 @@ const SearchComponent = (props) => {
 
     return (
         <form className='searchBar'> 
-            <input className='input' type="search" name="name" id='mainInput' onSubmit={search}></input>
+            <input className='input' type="search" name="name" id='mainInput' placeholder="Search a city!" onSubmit={search} ></input>
             <button className='searchButton' onClick={search}>🔍</button>
         </form>
     )
