@@ -1,4 +1,6 @@
 .fiveDayBlock{
-    width: 20%;
+    width: 15%;
     text-align: center;
+    border: black 1px solid;
+    border-radius: 10px;
 }

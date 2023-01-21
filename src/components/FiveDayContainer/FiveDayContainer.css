@@ -1,6 +1,7 @@
 .fiveDayContainer{
     display: flex;
-    width: 100%;
+    flex-wrap: wrap;
     justify-content: space-around;
+    width: 100%;
     margin-top: 5%;
 }

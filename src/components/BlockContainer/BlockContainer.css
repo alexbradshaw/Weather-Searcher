@@ -1,8 +1,0 @@
-.blockContainer{
-    display: flex;
-    justify-content: center;
-    align-content: flex-start;
-    flex-wrap: wrap;
-    height: 90%;
-    width: 100%;
-}

@@ -3,8 +3,11 @@
     flex-wrap: wrap;
     justify-content: center;
     align-content: flex-start;
-    width: 100%;
+    width: 80%;
     height: 40%;
+    border: 1px solid black;
+    margin-top: 2%;
+    border-radius: 10px;
 }
 
 .dayblockHeader{

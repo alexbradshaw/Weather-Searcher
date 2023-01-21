@@ -26,6 +26,7 @@ const DayBlock = (props) => {
         backgroundColor = "purple"
     }
 
+
     return (
         <div className='dayBlock'> 
             <div className='dayblockHeader'>

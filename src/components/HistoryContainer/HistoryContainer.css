@@ -1,10 +1,11 @@
 .historyContainer{
-    border: solid 3px black;
-    height: 89%;
-    width: 17.5%;
+    height: 90%;
+    width: 12%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: .5%;
+    background-color: #e9e7e7;
 }
 
 .searchHistoryHeader{
