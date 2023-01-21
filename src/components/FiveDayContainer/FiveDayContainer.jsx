@@ -1,15 +1,17 @@
 import './FiveDayContainer.css';
 import FiveDayBlock from '../FiveDayBlock/FiveDayBlock';
 
-const FiveDayContainer = () => {
+const FiveDayContainer = (props) => {
 
+    const fiveDayInfo = props.fiveDayInfo;
+    
     return (
         <div className='fiveDayContainer'> 
-            <FiveDayBlock date={"January 14th"} temperature={"50"} humidity={"30"} icon={"01d@2x.png"}/>
-            <FiveDayBlock date={"January 15th"} temperature={"50"} humidity={"30"} icon={"01d@2x.png"}/>
-            <FiveDayBlock date={"January 16th"} temperature={"50"} humidity={"30"} icon={"01d@2x.png"}/>
-            <FiveDayBlock date={"January 17th"} temperature={"50"} humidity={"30"} icon={"01d@2x.png"}/>
-            <FiveDayBlock date={"January 18th"} temperature={"50"} humidity={"30"} icon={"01d@2x.png"}/>
+            <FiveDayBlock date={fiveDayInfo.date[0]} humidity={fiveDayInfo.humidity[0]} icon={fiveDayInfo.icon[0]} temperature={fiveDayInfo.temp[0]} wind={fiveDayInfo.wind[0]}/>
+            <FiveDayBlock date={fiveDayInfo.date[1]} humidity={fiveDayInfo.humidity[1]} icon={fiveDayInfo.icon[1]} temperature={fiveDayInfo.temp[1]} wind={fiveDayInfo.wind[1]}/>
+            <FiveDayBlock date={fiveDayInfo.date[2]} humidity={fiveDayInfo.humidity[2]} icon={fiveDayInfo.icon[2]} temperature={fiveDayInfo.temp[2]} wind={fiveDayInfo.wind[2]}/>
+            <FiveDayBlock date={fiveDayInfo.date[3]} humidity={fiveDayInfo.humidity[3]} icon={fiveDayInfo.icon[3]} temperature={fiveDayInfo.temp[3]} wind={fiveDayInfo.wind[3]}/>
+            <FiveDayBlock date={fiveDayInfo.date[4]} humidity={fiveDayInfo.humidity[4]} icon={fiveDayInfo.icon[4]} temperature={fiveDayInfo.temp[4]} wind={fiveDayInfo.wind[4]}/>
         </div>
     )
 }

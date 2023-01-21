@@ -2,28 +2,28 @@ import './DayBlock.css';
 
 const DayBlock = (props) => {
     
-    const currentDate = props.date
-    const city = props.city
+    const currentDate = props.date;
+    const city = props.city;
     
-    const temperature = props.temperature
-    const humidity = props.humidity
-    const wind = props.wind
-    const uvindex = props.uvindex
+    const temperature = props.temperature;
+    const humidity = props.humidity;
+    const wind = props.wind;
+    const uvindex = props.uvindex;
 
-    const icon = props.icon
+    const icon = props.icon;
 
-    const sourceString = "http://openweathermap.org/img/wn/" + icon
+    const sourceString = icon ? "http://openweathermap.org/img/wn/" + icon : '';
 
     var backgroundColor;
 
     if(uvindex <= 6){
-        backgroundColor = "green"
+        backgroundColor = "green";
     } else if(uvindex <= 9){
-        backgroundColor = "yellow"
+        backgroundColor = "yellow";
     } else if (uvindex <= 12){
-        backgroundColor = "red"
+        backgroundColor = "red";
     } else {
-        backgroundColor = "purple"
+        backgroundColor = "purple";
     }
 
 

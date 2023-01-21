@@ -2,12 +2,13 @@ import './FiveDayBlock.css';
 
 const FiveDayBlock = (props) => {
 
-    const date = props.date
-    const icon = props.icon
+    const date = props.date;
+    const icon = props.icon;
 
-    const temperature = props.temperature
-    const humidity = props.humidity
-    const sourceString = "http://openweathermap.org/img/wn/" + icon
+    const temperature = props.temperature;
+    const humidity = props.humidity;
+    const wind = props.wind;
+    const sourceString = icon ? "http://openweathermap.org/img/wn/" + icon : '';
 
     return (
         <div className='fiveDayBlock'> 
@@ -17,6 +18,7 @@ const FiveDayBlock = (props) => {
             </div>
             <h5>Temperature: {temperature}℉</h5>
             <h5>Humidity: {humidity}%</h5>
+            <h5>Wind Speed: {wind}mph</h5>
         </div>
     )
 }

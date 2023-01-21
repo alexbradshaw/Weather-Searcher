@@ -2,12 +2,13 @@ import './MainContainer.css';
 import SearchComponent from '../SearchComponent/SearchComponent';
 import DayBlock from '../DayBlock/DayBlock'
 import FiveDayContainer from '../FiveDayContainer/FiveDayContainer';
-import mainSearch from '../../utils/services';
+import * as Services from '../../utils/services'
 
 import { useState } from 'react';
-import { render } from '@testing-library/react';
 
-const MainContainer = () => {
+const MainContainer = (props) => {
+
+    const [initialLocation, setLocation] = useState(false);
 
     const [weatherInfo, setWeatherInfo] = useState({
         date: "",
@@ -17,36 +18,89 @@ const MainContainer = () => {
         wind: 0,
         uvindex: 0,
         icon: "",
-        event: ''
+        event: '',
     });
 
-    const search = async () => {
-        const info = await mainSearch("https://api.openweathermap.org/data/2.5/forecast?q=" + weatherInfo.event + "&appid=7f797aeb2c4333e090bbfef3ca363921")
-        return info;
+    const [fiveDayInfo, setFiveDay] = useState({
+        date: [],
+        temp: [],
+        humidity: [],
+        wind: [],
+        icon: []
+    });
+
+    const loadData = (fiveDayArray) => {
+        var date;
+
+        var weatherObject = {
+            date: [],
+            temp: [],
+            humidity: [],
+            wind: [],
+            icon: [],
+        }
+
+        for (let i = 0; i < 40; i += 8) {
+            date = new Date(fiveDayArray[i + 3].dt * 1000); 
+            weatherObject.date[i / 8] = date.toDateString()
+            weatherObject.temp[i / 8] = fiveDayArray[i + 3].main.temp
+            weatherObject.humidity[i / 8] = fiveDayArray[i + 3].main.humidity
+            weatherObject.wind[i / 8] = fiveDayArray[i + 3].wind.speed
+            weatherObject.icon[i / 8] = `${fiveDayArray[i + 3].weather[0].icon}@2x.png`
+        }
+
+        fiveDayInfoUpdater(weatherObject)
     }
 
     const displayFunction = () => {
-        search()
-        .then(data => {
-            var date = new Date(data.weather.current.dt * 1000); 
-            setWeatherInfo({
-                date: date.toDateString(),
-                city: data.fiveDay.city.name,
-                temperature: data.weather.current.temp,
-                humidity: data.weather.current.humidity,
-                wind: data.weather.current.wind_speed,
-                uvindex: data.weather.current.uvi,
-                icon: `${data.weather.current.weather[0].icon}@2x.png`,
-                event: ''
-            })
-        })
+        Services.mainSearch(weatherInfo.event)
+        .then(data => weatherInfoUpdater(data))
+    }
+
+    const successSearch = (location) =>{
+        Services.altSearch(location.coords.latitude, location.coords.longitude)
+        .then(data => weatherInfoUpdater(data))
+    }
+
+    const weatherInfoUpdater = (data) => {
+        props.search(data.fiveDay.city.name);
+        var date = new Date(data.weather.current.dt * 1000); 
+        setWeatherInfo({
+            date: date.toDateString(),
+            city: data.fiveDay.city.name,
+            temperature: data.weather.current.temp,
+            humidity: data.weather.current.humidity,
+            wind: data.weather.current.wind_speed,
+            uvindex: data.weather.current.uvi,
+            icon: `${data.weather.current.weather[0].icon}@2x.png`,
+            event: '',
+            fiveDayInfo: data.fiveDay
+        });
+        loadData(data.fiveDay.list);
+    }
+
+    const fiveDayInfoUpdater = (data) => {
+        fiveDayInfo.date = data.date;
+        fiveDayInfo.temp = data.temp;
+        fiveDayInfo.humidity = data.humidity;
+        fiveDayInfo.wind = data.wind;
+        fiveDayInfo.icon = data.icon;
+    }
+
+    const error = () => {
+        alert("Please enable location services for default location.");
+    }
+
+    if(initialLocation == false){
+        navigator.geolocation.getCurrentPosition(successSearch, error);
+        setLocation(true);
     }
 
     return (
         <div className='mainContainer'> 
-            <SearchComponent weatherInfo={weatherInfo} displayFunction={displayFunction}/>
+            <SearchComponent weatherInfo={weatherInfo} displayFunction={displayFunction} newSearch={props.newSearch}/>
             <DayBlock date={weatherInfo.date} city={weatherInfo.city} temperature={weatherInfo.temperature} humidity={weatherInfo.humidity} wind={weatherInfo.wind} uvindex={weatherInfo.uvindex} icon={weatherInfo.icon} />
-            <FiveDayContainer/>
+            <FiveDayContainer fiveDayInfo={fiveDayInfo}/>
         </div>
     )
 }
