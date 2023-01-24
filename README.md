@@ -43,4 +43,4 @@ If you would like to contribute to the project please contact:
 * [Alex Bradshaw](mailto:alexanderbradshaw5@gmail.com)
 
 # __Application__
-<a href='https://github.com/alexbradshaw/Weather-Searcher' target="_blank">Click to view deployed application</a>
+<a href='https://alexbradshaw.github.io/Weather-Searcher/' target="_blank">Click to view deployed application</a>
