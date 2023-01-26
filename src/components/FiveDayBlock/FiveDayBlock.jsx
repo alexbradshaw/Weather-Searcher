@@ -5,22 +5,6 @@ const FiveDayBlock = (props) => {
     const date = props.date;
     const icon = props.icon;
 
-    const dateUpdate = (date) => {
-        if (date == null) return '';
-        var newDate = '';
-        var tempString = date.split(' ');
-    
-        for (let i = 0; i < tempString.length; i++){
-            newDate += tempString[i];
-            if(i == 0){
-                newDate += ',';
-            }
-            newDate += ' ';
-        }
-        console.log(newDate);
-        return newDate;
-    }
-
     const temperature = props.temperature;
     const humidity = props.humidity;
     const wind = props.wind;
@@ -36,6 +20,22 @@ const FiveDayBlock = (props) => {
         tempColor = "#ffaf26"
     } else {
         tempColor = "#ff443a"
+    }
+    
+    const dateUpdate = (date) => {
+        if (date == null) return '';
+        var newDate = '';
+        var tempString = date.split(' ');
+    
+        for (let i = 0; i < tempString.length; i++){
+            newDate += tempString[i];
+            if(i == 0){
+                newDate += ',';
+            }
+            newDate += ' ';
+        }
+        
+        return newDate;
     }
 
     return (

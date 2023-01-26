@@ -50,7 +50,7 @@ const DayBlock = (props) => {
             }
             newDate += ' ';
         }
-        console.log(newDate);
+        
         return newDate;
     }
 
